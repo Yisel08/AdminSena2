@@ -25,6 +25,20 @@ class TeacherController extends Controller
         $profe = Teacher::find(1);
         return $profe->courses;
     }
+    //
+
+
+
+    public function index(){
+    $teachers =Teacher::all();
+    return view('teacher.index',compact('teachers'));
+    }
+
+     public function show($id){
+    $teachers = Teacher::find($id);
+    return view('teacher.show', compact('teachers'));
+    }
+
 
 
      public function create (){

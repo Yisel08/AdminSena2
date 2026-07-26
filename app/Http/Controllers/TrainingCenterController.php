@@ -20,8 +20,21 @@ class TrainingCenterController extends Controller
 
 
 
-    public function create (){
 
+      public function index(){
+
+    $centers =Training_center::all();
+    return view('training_center.index',compact('centers'));
+    }
+
+    public function show($id){
+    $centers = Training_center::find($id);
+    return view('training_center.show', compact('centers'));
+    }
+
+
+
+    public function create (){
      return view('training_center.create');
     }
 

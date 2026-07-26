@@ -28,8 +28,19 @@ class CourseController extends Controller
         $curso = Course::find(1);
         return $curso->teachers;
     }
+    //
 
 
+    
+      public function index(){
+    $cursos =Course::all();
+    return view('course.index',compact('cursos'));
+    }
+
+     public function show($id){
+        $cursos= Course::find($id);
+        return view('course.show', compact('cursos'));
+    }
 
 
 

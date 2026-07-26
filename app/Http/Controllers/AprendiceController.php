@@ -18,20 +18,30 @@ class AprendiceController extends Controller
         $aprendice = Aprendice::find(3);
         return $aprendice->computer;
     }
+//
+
+
+    public function index(){
+    $aprendices =Aprendice::all();
+    return view('aprendice.index',compact('aprendices'));
+    }
+
+
+     public function show($id){
+    $aprendice = Aprendice::find($id);
+    return view('aprendice.show', compact('aprendice'));
+    }
 
 
 
      public function create (){
-
     $courses=Course::all();
     $computers=Computer::all();
-
      return view('aprendice.create',compact('courses','computers'));
     }
 
     public function store(Request $request){
     $aprendice=Aprendice::create($request->all());
-    
     return $aprendice;
     }
 
