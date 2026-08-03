@@ -30,22 +30,34 @@ class AreaController extends Controller
     }
 
 
-
-
     public function create (){
      return view('area.create');
     }
 
     public function store(Request $request){
     /*$area = new Area();
-
     $area->name=$request->name;
     $area->save();*/
     $area=Area::create($request->all());
-
     return $area;
-
-  
-
     }
+
+
+     public function edit($id){ 
+    $area = Area::findOrFail($id);
+    return view('area.edit', compact('area'));
+    }
+
+    public function update(Request $request, Area $area){
+    $area->update($request->all());
+    return  redirect()->route('area.list');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Area $area){
+        $area->delete();
+        return redirect()->route('area.list');
+    }
+
+
 }

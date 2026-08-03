@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>LISTA AREAS</h1>
+    <h1>LISTAR AREAS</h1>
 
     <div class ="container">
-        <table id="idProduct" class="table table-striped table-bordered" style="width:100%">
+        <table id="idArea" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Detalle</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,10 +20,18 @@
                 </a>
                 @foreach ($areas as $area)
                     <tr>
-                        <br>
                         <td>{{ $area->id }}</td>
                         <td>{{ $area->name }}</td>
                         <td><a href="{{ route('area.show', $area->id) }}">Mostrar</a></td> 
+
+                         <td><a href="{{ route('area.edit', $area->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('area.destroy', $area->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-success">Eliminar area</button>
+                            </form>
+                        </td>
 
                         <br>
 

@@ -21,7 +21,8 @@ class Computer extends Model
 
 
     // Un computador tiene muchos aprendices
-    public function aprendice(){
-        return $this->hasOne(Aprendice::class);
+    public function aprendices()
+    {
+        return $this->hasMany(Aprendice::class);
     }
 }

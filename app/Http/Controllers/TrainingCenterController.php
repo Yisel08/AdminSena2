@@ -21,8 +21,7 @@ class TrainingCenterController extends Controller
 
 
 
-      public function index(){
-
+    public function index(){
     $centers =Training_center::all();
     return view('training_center.index',compact('centers'));
     }
@@ -39,17 +38,29 @@ class TrainingCenterController extends Controller
     }
 
     public function store(Request $request){
-
     /*$training_center= new Training_center();
-
     $training->name=$request->name;
     $training->location=$request->location;
     $training->save();*/
-
     $training_center=Training_center::create($request->all());
-
     return $training_center;
-
     }
+
+    public function edit($id){ 
+    $center= Training_center::findOrFail($id);
+    return view('training_center.edit', compact('center'));
+    }
+
+    public function update(Request $request, Training_center $center){
+    $center->update($request->all());
+    return  redirect()->route('training_center.list');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Training_center $center){
+        $center->delete();
+        return redirect()->route('training_center.index');
+    }
+
 
 }

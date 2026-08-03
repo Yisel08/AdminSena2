@@ -21,13 +21,13 @@ return new class extends Migration
             $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('course_id')
                 ->references('id')
-                ->on('courses')->onDelete('set null');
+                ->on('courses')->onDelete('cascade');
                 
                 //FK2
                 $table->unsignedBigInteger('computer_id')->nullable();
             $table->foreign('computer_id')
                 ->references('id')
-                ->on('computers')->onDelete('set null');
+                ->on('computers')->onDelete('cascade');
             $table->timestamps();
         });
     }

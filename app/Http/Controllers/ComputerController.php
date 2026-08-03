@@ -30,16 +30,28 @@ class ComputerController extends Controller
     }
 
     public function store(Request $request){
-
     /*$computer= new Computer();
     $computer->number=$request->number;
     $computer->brand=$request->brand;
     $computer->save();*/
-    
     $computer=Computer::create($request->all());
-
     return $computer;
+    }
 
+     public function edit($id){ 
+    $computer = Computer::findOrFail($id);
+    return view('computer.edit', compact('computer'));
+    }
+
+    public function update(Request $request, Computer $computer){
+    $computer->update($request->all());
+    return  redirect()->route('computer.list');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Computer $computer){
+        $computer->delete();
+        return redirect()->route('computer.list');
     }
 
 }

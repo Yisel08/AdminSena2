@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>LISTA COMPUTADORES</h1>
+    <h1>LISTAR COMPUTADORES</h1>
 
     <div class ="container">
         <table id="idComputer" class="table table-striped table-bordered" style="width:100%">
@@ -11,6 +11,8 @@
                     <th>Numero</th>
                     <th>Marca</th>
                     <th>Detalle</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,11 +21,21 @@
                 </a>
                 @foreach ($computers as $computer)
                     <tr>
-                        <br>
+                        
                         <td>{{ $computer->id }}</td>
                         <td>{{ $computer->number }}</td>
                         <td>{{ $computer->brand }}</td>
                         <td><a href="{{ route('computer.show', $computer->id) }}">Mostrar</a></td>
+
+                        
+                         <td><a href="{{ route('computer.edit', $computer->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('computer.destroy', $computer->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-success">Eliminar computador</button>
+                            </form>
+                        </td>
 
                         <br>
 

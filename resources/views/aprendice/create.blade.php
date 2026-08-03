@@ -32,7 +32,7 @@
 
 {{-- {{$courses}} --}}
 
-<label for="course_id">Area</label>
+<label for="course_id">Curso</label>
 
     <select name="course_id" id="user_id" class="form-control">
         <option value="">Seleccione un curso</option>

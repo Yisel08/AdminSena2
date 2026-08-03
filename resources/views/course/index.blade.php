@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>LISTA CURSOS</h1>
+    <h1>LISTAR CURSOS</h1>
 
     <div class ="container">
         <table id="idCourse" class="table table-striped table-bordered" style="width:100%">
@@ -13,6 +13,8 @@
                     <th>Id Area</th>
                     <th>Id CentroFormacion</th>
                     <th>Detalle</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +30,16 @@
                          <td>{{ $curso->area_id}}</td>
                          <td>{{ $curso->training_center_id}}</td>
                         <td><a href="{{ route('course.show', $curso->id) }}">Mostrar</a></td>
+
+                        
+                         <td><a href="{{ route('course.edit', $curso->id) }}">Editar</a></td>
+                        <td>
+                            <form action="{{ route('course.destroy', $curso->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-success">Eliminar Curso</button>
+                            </form>
+                        </td>
                         <br>
 
                     </tr>

@@ -18,8 +18,7 @@ class AprendiceController extends Controller
         $aprendice = Aprendice::find(3);
         return $aprendice->computer;
     }
-//
-
+    //
 
     public function index(){
     $aprendices =Aprendice::all();
@@ -33,7 +32,6 @@ class AprendiceController extends Controller
     }
 
 
-
      public function create (){
     $courses=Course::all();
     $computers=Computer::all();
@@ -43,6 +41,24 @@ class AprendiceController extends Controller
     public function store(Request $request){
     $aprendice=Aprendice::create($request->all());
     return $aprendice;
+    }
+
+
+     public function edit(Aprendice $aprendice){ 
+    $cursos=Course::all();
+    $computers=Computer::all();
+     return view('aprendice.edit',compact('aprendice','cursos','computers'));
+    }
+
+    public function update(Request $request, Aprendice $aprendice){
+    $aprendice->update($request->all());
+    return redirect()->route('aprendice.list');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Aprendice $aprendice){
+    $aprendice->delete();
+    return redirect()->route('aprendice.list');
     }
 
 

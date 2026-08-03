@@ -42,21 +42,35 @@ class TeacherController extends Controller
 
 
      public function create (){
-
     $areas=Area::all();
     $training_centers=Training_center::all();
-
-     return view('teacher.create',compact('areas','training_centers'));
+    return view('teacher.create',compact('areas','training_centers'));
     }
 
 
     public function store(Request $request){
-   
     $teacher=Teacher::create($request->all());
-
     return $teacher;
+    }
 
 
+
+     public function edit(Teacher $teacher){ //Encuentro el profesor
+    $areas=Area::all();
+    $training_centers=Training_center::all();
+     return view('teacher.edit',compact('teacher','areas', 'training_centers'));
+    }
+
+
+    public function update(Request $request, Teacher $teacher){
+    $teacher->update($request->all());
+    return redirect()->route('teacher.list');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Teacher $teacher){
+    $teacher->delete();
+    return redirect()->route('teacher.list');
     }
 }
 
