@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-4" style="max-width: 600px;">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <div class="card shadow-sm border-0">
+        <!-- Encabezado con Verde Oscuro SENA (#006837) -->
+        <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: #006837; border-color: #006837;">
             <h5 class="mb-0">Detalle del Aprendiz #{{ $aprendice->id }}</h5>
-            <a href="{{ route('aprendice.list') }}" class="btn btn-sm btn-light">Volver</a>
+            <a href="{{ route('aprendice.list') }}" class="btn btn-sm btn-light fw-bold">Volver</a>
         </div>
         
         <div class="card-body">
@@ -18,7 +19,7 @@
                 <p class="fs-5">{{ $aprendice->name }}</p>
             </div>
 
-             <div class="mb-3">
+            <div class="mb-3">
                 <label class="form-label text-muted fw-bold">Correo del Aprendiz:</label>
                 <p class="fs-5">{{ $aprendice->email }}</p>
             </div>
@@ -44,4 +45,4 @@
         </div>
     </div>
 </div>
-@endsection<
+@endsection

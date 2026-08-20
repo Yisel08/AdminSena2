@@ -24,6 +24,12 @@ use App\Http\Controllers\CourseController;
 
 //Route::get('/consultas',[ConsultasController::class, 'consulta_2']);
 
+Route::get('/', function () {return view('home');})->name('home');
+
+Route::get('/quienes-somos', function () {return view('quienes_somos.index');})->name('quienes.somos');
+Route::get('/contactanos', function () {return view('contactanos.index');})->name('contactanos');
+Route::get('/buscar', function () {return view('buscar.index');})->name('buscar');
+
 
 Route::get('area/show/{id}',[AreaController::class,'show'])->name('area.show');
 Route::get('area/list',[AreaController::class,'index'])->name('area.list');

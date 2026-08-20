@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mt-4" style="max-width: 600px;">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <div class="card-header text-white d-flex justify-content-between align-items-center" style="background-color: #006837; border-color: #006837;">
             <h5 class="mb-0">Detalle del Area #{{ $areas->id }}</h5>
             <a href="{{ route('area.list') }}" class="btn btn-sm btn-light">Volver</a>
         </div>
