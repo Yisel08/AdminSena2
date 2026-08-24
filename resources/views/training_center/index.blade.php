@@ -21,7 +21,6 @@
                 </a>
                 @foreach ($centers as $center)
                     <tr>
-                        <br>
                         <td>{{ $center->id }}</td>
                         <td>{{ $center->name }}</td>
                         <td>{{ $center->location }}</td>
