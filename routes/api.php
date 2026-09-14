@@ -1,5 +1,10 @@
 <?php
-
+use App\Http\Controllers\AprendiceController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ComputerController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\TeacherController; 
+use App\Http\Controllers\TrainingCenterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +22,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::apiResource('aprendices', AprendiceController::class);
+Route::apiResource('areas', AreaController::class);
+Route::apiResource('computers', ComputerController::class);
+Route::apiResource('cursos', CourseController::class);
+Route::apiResource('teachers', TeacherController::class);
+Route::apiResource('centers', TrainingCenterController::class);
+
+
+
+
+

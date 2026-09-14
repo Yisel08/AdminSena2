@@ -23,6 +23,8 @@
 <br>
 <br>
 
+ <input type="file" name="urlFoto" class="form-control-file" accept="image/*"">
+
 
 <button type="submit">Enviar Formulario:</button>
 </form>

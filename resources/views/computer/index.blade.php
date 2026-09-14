@@ -28,6 +28,13 @@
                         <td>{{ $computer->id }}</td>
                         <td>{{ $computer->number }}</td>
                         <td>{{ $computer->brand }}</td>
+                        <td><img
+                            src="{{ asset('storage/images/' . $computer->urlFoto) }}"
+                            alt="Imagen del computador"
+                            width="80"
+                            height="80"
+                            style="object-fit: cover; border-radius: 5px;"
+                        ></td>
 
                         <td>
                             <a href="{{ route('computer.show', $computer->id) }}">

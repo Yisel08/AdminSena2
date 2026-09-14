@@ -16,6 +16,10 @@ class Computer extends Model
     ];
 
 
+    
+    protected $guarded = [
+        'urlFoto'
+    ];
 
 
 

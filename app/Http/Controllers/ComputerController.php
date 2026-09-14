@@ -16,7 +16,7 @@ class ComputerController extends Controller
     
     public function index(){
     $computers = Computer::all();
-    return view('computer.index',compact('computers'));
+    return response()->json($computers, 200);
     }
 
     public function show($id){
@@ -35,7 +35,15 @@ class ComputerController extends Controller
     $computer->brand=$request->brand;
     $computer->save();*/
     $computer=Computer::create($request->all());
-    return $computer;
+
+     $file=$request->file("urlFoto");
+
+         $nombreArchivo = "foto_".time().".".$file->guessExtension();
+         $request->file('urlFoto')->storeAs('public/images', $nombreArchivo );
+
+         $computer->urlFoto = $nombreArchivo;
+         $computer->save();
+    return redirect()->route('computer.list');
     }
 
      public function edit($id){ 

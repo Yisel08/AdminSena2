@@ -23,7 +23,7 @@ class TrainingCenterController extends Controller
 
     public function index(){
     $centers =Training_center::all();
-    return view('training_center.index',compact('centers'));
+    return response()->json($centers, 200);
     }
 
     public function show($id){

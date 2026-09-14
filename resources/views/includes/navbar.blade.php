@@ -218,6 +218,7 @@
 </nav>
 
 
+
 <!-- ===================================================== -->
 <!-- MODAL INICIAR SESIÓN -->
 <!-- ===================================================== -->
@@ -364,17 +365,37 @@
                 </div>
 
 
-                <!-- CONTRASEÑA OLVIDADA -->
-                <div class="text-center mt-3">
+                <!-- REGISTRARSE -->
+                <div class="text-center mt-3 mb-2">
+
+                    <span class="small text-muted">
+                        ¿No tienes una cuenta?
+                    </span>
 
                     <a href="#"
-                       class="text-success text-decoration-none">
+                       class="text-success fw-semibold text-decoration-none small"
+                       data-bs-toggle="modal"
+                       data-bs-target="#registroModal">
+
+                        Regístrate
+
+                    </a>
+
+                </div>
+
+
+                <!-- CONTRASEÑA OLVIDADA -->
+                <div class="text-center">
+
+                    <a href="#"
+                       class="text-success text-decoration-none small">
 
                         ¿Olvidaste tu contraseña?
 
                     </a>
 
                 </div>
+
 
             </div>
 
@@ -385,11 +406,211 @@
 </div>
 
 
+
 <!-- ===================================================== -->
-<!-- ESTILOS DEL NAVBAR Y MODAL -->
+<!-- MODAL REGISTRO -->
+<!-- ===================================================== -->
+
+<div class="modal fade"
+     id="registroModal"
+     tabindex="-1"
+     aria-labelledby="registroModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 shadow">
+
+
+            <!-- ENCABEZADO -->
+            <div class="modal-header bg-success text-white">
+
+                <h5 class="modal-title" id="registroModalLabel">
+
+                    <i class="bi bi-person-plus me-2"></i>
+
+                    Crear cuenta
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar">
+                </button>
+
+            </div>
+
+
+            <!-- CUERPO -->
+            <div class="modal-body p-4">
+
+
+                <!-- ICONO Y BIENVENIDA -->
+                <div class="text-center mb-4">
+
+                    <div class="login-icon">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                    </div>
+
+                    <h4 class="mt-3 fw-bold">
+                        Crea tu cuenta
+                    </h4>
+
+                    <p class="text-muted mb-0">
+                        Regístrate para acceder a AdminSena
+                    </p>
+
+                </div>
+
+
+                <!-- NOMBRE DE USUARIO -->
+                <div class="mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Nombre de usuario
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Crea un nombre de usuario">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CORREO ELECTRÓNICO -->
+                <div class="mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Correo electrónico
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-envelope"></i>
+                        </span>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="correo@ejemplo.com">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+                <div class="mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Contraseña
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-lock"></i>
+                        </span>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            placeholder="Crea una contraseña">
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRMAR CONTRASEÑA -->
+                <div class="mb-4">
+
+                    <label class="form-label fw-semibold">
+                        Confirmar contraseña
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-lock-fill"></i>
+                        </span>
+
+                        <input
+                            type="password"
+                            class="form-control"
+                            placeholder="Repite tu contraseña">
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÓN REGISTRARSE -->
+                <div class="d-grid">
+
+                    <button
+                        type="button"
+                        class="btn btn-success btn-lg">
+
+                        <i class="bi bi-person-plus me-2"></i>
+
+                        Registrarse
+
+                    </button>
+
+                </div>
+
+
+                <!-- VOLVER AL LOGIN -->
+                <div class="text-center mt-3">
+
+                    <span class="small text-muted">
+                        ¿Ya tienes una cuenta?
+                    </span>
+
+                    <a href="#"
+                       class="text-success fw-semibold text-decoration-none small"
+                       data-bs-toggle="modal"
+                       data-bs-target="#loginModal">
+
+                        Inicia sesión
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===================================================== -->
+<!-- ESTILOS DEL NAVBAR Y MODALES -->
 <!-- ===================================================== -->
 
 <style>
+
 
     /* ================================
        OPCIONES DEL DROPDOWN
@@ -486,7 +707,7 @@
 
 
     /* ================================
-       ICONO DEL MODAL
+       ICONO DE LOS MODALES
     ================================= */
 
     .login-icon {
@@ -515,7 +736,7 @@
 
 
     /* ================================
-       CAMPOS DEL FORMULARIO
+       CAMPOS DEL LOGIN
     ================================= */
 
     #loginModal .input-group-text {
@@ -539,7 +760,31 @@
 
 
     /* ================================
-       BOTÓN INGRESAR
+       CAMPOS DEL REGISTRO
+    ================================= */
+
+    #registroModal .input-group-text {
+
+        background-color: #e8f5e9;
+
+        color: #198754;
+
+        border-color: #dee2e6;
+
+    }
+
+
+    #registroModal .form-control:focus {
+
+        border-color: #198754;
+
+        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+
+    }
+
+
+    /* ================================
+       BOTONES DEL LOGIN
     ================================= */
 
     #loginModal .btn-success {
@@ -554,5 +799,46 @@
         transform: translateY(-1px);
 
     }
+
+
+    /* ================================
+       BOTONES DEL REGISTRO
+    ================================= */
+
+    #registroModal .btn-success {
+
+        transition: all 0.2s ease;
+
+    }
+
+
+    #registroModal .btn-success:hover {
+
+        transform: translateY(-1px);
+
+    }
+
+
+    /* ================================
+       ENLACES DE REGISTRO
+    ================================= */
+
+    #loginModal a,
+    #registroModal a {
+
+        transition: all 0.2s ease;
+
+    }
+
+
+    #loginModal a:hover,
+    #registroModal a:hover {
+
+        color: #146c43 !important;
+
+        text-decoration: underline !important;
+
+    }
+
 
 </style>

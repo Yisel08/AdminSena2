@@ -34,7 +34,7 @@ class CourseController extends Controller
     
     public function index(){
     $cursos =Course::all();
-    return view('course.index',compact('cursos'));
+    return response()->json($cursos, 200);
     }
 
      public function show($id){

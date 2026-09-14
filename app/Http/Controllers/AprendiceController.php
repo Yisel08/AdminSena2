@@ -22,7 +22,7 @@ class AprendiceController extends Controller
 
     public function index(){
     $aprendices =Aprendice::all();
-    return view('aprendice.index',compact('aprendices'));
+    return response()->json($aprendices, 200);
     }
 
 
